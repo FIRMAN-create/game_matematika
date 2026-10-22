@@ -1,0 +1,167 @@
+.game-view {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+.game-status-bar {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  z-index: 10;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.status-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+}
+
+.status-value {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.status-timer {
+  font-family: 'Orbitron', monospace;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  transition: color 0.3s;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.pause-btn {
+  padding: 6px 14px;
+  font-size: 1rem;
+  min-width: 44px;
+}
+
+.phaser-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.phaser-container canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  image-rendering: pixelated;
+}
+
+/* Interaction prompt */
+.interact-prompt {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 5, 15, 0.9);
+  border: 1px solid var(--cyan-dim);
+  border-radius: 20px;
+  padding: 6px 18px;
+  font-size: 0.82rem;
+  color: var(--cyan);
+  font-family: 'Share Tech Mono', monospace;
+  animation: pulse 1.5s ease-in-out infinite;
+  z-index: 20;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.interact-prompt kbd {
+  display: inline-block;
+  background: var(--cyan);
+  color: var(--bg-dark);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-weight: 700;
+  margin-right: 6px;
+  font-family: 'Orbitron', monospace;
+  font-size: 0.75rem;
+}
+
+/* ── Mobile D-pad ── */
+.mobile-controls {
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 16px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+@media (max-width: 768px), (hover: none) {
+  .mobile-controls { display: flex; }
+  .interact-prompt { bottom: 140px; }
+}
+
+.dpad {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 2px;
+  pointer-events: all;
+}
+
+.dpad-middle-row {
+  display: flex;
+  gap: 2px;
+}
+
+.dpad-btn {
+  width: 48px;
+  height: 48px;
+  background: rgba(0, 229, 255, 0.12);
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  border-radius: 8px;
+  color: var(--cyan);
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  user-select: none;
+}
+
+.dpad-btn:active { background: rgba(0, 229, 255, 0.25); }
+.dpad-center { background: rgba(0,0,0,0.2); color: var(--text-dim); cursor: default; }
+
+.action-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: all;
+}
+
+.action-e {
+  background: rgba(0, 229, 255, 0.2);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+}
+
+.action-pause {
+  background: rgba(255, 145, 0, 0.1);
+  border-color: rgba(255,145,0,0.4);
+  color: var(--orange);
+}

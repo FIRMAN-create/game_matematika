@@ -1,0 +1,183 @@
+.question-panel {
+  width: 90%;
+  max-width: 620px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  overflow: hidden;
+}
+
+.qp-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  background: rgba(0,0,0,0.3);
+}
+
+.qp-level-badge {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.qp-title {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 2px;
+}
+
+.qp-stage-indicator {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.stage-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  transition: background 0.3s;
+}
+
+.stage-dot.done { opacity: 0.6; }
+.stage-dot.active { box-shadow: 0 0 6px currentColor; }
+
+.qp-body {
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.qp-problem {
+  white-space: pre-wrap;
+}
+
+.problem-line {
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.problem-gap { height: 8px; }
+
+/* Cipher table */
+.cipher-table {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+}
+
+.cipher-header {
+  background: rgba(0,229,255,0.08);
+  padding: 6px 12px;
+  color: var(--cyan);
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+}
+
+.cipher-row {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid rgba(0,229,255,0.1);
+}
+
+.cipher-row > span {
+  padding: 6px 0;
+  text-align: center;
+  flex: 1;
+  color: var(--text-dim);
+}
+
+.cipher-row > span:first-child {
+  flex: 1.2;
+  text-align: left;
+  padding-left: 12px;
+  color: var(--text-secondary);
+}
+
+.cipher-row-header > span { color: var(--orange); }
+.cipher-num { color: var(--blue-bright) !important; }
+.cipher-letter { color: var(--green) !important; font-weight: bold; font-size: 0.9rem; }
+
+/* Hints */
+.hint-box {
+  background: rgba(255, 145, 0, 0.08);
+  border: 1px solid rgba(255,145,0,0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  color: var(--orange);
+  line-height: 1.5;
+}
+
+.hint-label {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+/* Feedback */
+.feedback-box {
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  background: rgba(255,23,68,0.08);
+  border: 1px solid rgba(255,23,68,0.3);
+  color: var(--red);
+}
+
+.feedback-wrong { animation: shake 0.4s ease; }
+
+.feedback-correct {
+  background: rgba(0, 230, 118, 0.08);
+  border-color: rgba(0, 230, 118, 0.3);
+  color: var(--green);
+}
+
+.feedback-correct-title {
+  font-family: 'Orbitron', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+/* Input */
+.qp-input-row {
+  display: flex;
+  gap: 0;
+}
+
+/* Actions */
+.qp-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,0.25);
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .question-panel { max-width: 98%; }
+  .qp-actions { flex-direction: column; }
+  .qp-actions .btn { width: 100%; }
+  .qp-actions div[style] { display: none; }
+}
